@@ -1,59 +1,120 @@
 <!DOCTYPE HTML>
 <html>
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-p {
-  text-align: center;
-  font-size: 60px;
-  margin-top: 0px;
-}
 
-h1 {
-  text-align: center;
-  font-size: 60px;
-  margin-top: 0px;
-}
-</style>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Count Down to Something</title>
+  <link rel="stylesheet" href="/style/material.min.css">
+  <script src="/script/material.min.js"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 </head>
+
+<style>
+  .demo-layout-transparent {
+    background: url('/assets/images/transparent.jpg') center / cover;
+  }
+
+  .demo-layout-transparent .mdl-layout__header,
+  .demo-layout-transparent .mdl-layout__drawer-button {
+    color: white;
+  }
+
+  .demo-card-wide.mdl-card {
+    width: 512px;
+  }
+
+  .demo-card-wide>.mdl-card__title {
+    color: #fff;
+    height: 176px;
+    background: url('/assets/images/welcome_card.jpg') center / cover;
+  }
+
+  .demo-card-wide>.mdl-card__menu {
+    color: #fff;
+  }
+</style>
+
 <body>
 
-<h1>Count Down Until Fart</h1>
-<p id="demo"></p>
-<img id="image">
+  <div class="demo-layout-transparent mdl-layout mdl-js-layout">
+    <header class="mdl-layout__header mdl-layout__header--transparent">
+      <div class="mdl-layout__header-row">
+        <span class="mdl-layout-title">Title</span>
+        <div class="mdl-layout-spacer"></div>
+        <nav class="mdl-navigation">
+          <a class="mdl-navigation__link" href="">Link</a>
+          <a class="mdl-navigation__link" href="">Link</a>
+          <a class="mdl-navigation__link" href="">Link</a>
+          <a class="mdl-navigation__link" href="">Link</a>
+        </nav>
+      </div>
+    </header>
+    <div class="mdl-layout__drawer">
+      <span class="mdl-layout-title">Title</span>
+      <nav class="mdl-navigation">
+        <a class="mdl-navigation__link" href="">Link</a>
+        <a class="mdl-navigation__link" href="">Link</a>
+        <a class="mdl-navigation__link" href="">Link</a>
+        <a class="mdl-navigation__link" href="">Link</a>
+      </nav>
+    </div>
+    <main class="mdl-layout__content">
 
-<script>
-// Set the date we're counting down to
-var countDownDate = new Date("May 24, 2022 6:00:00").getTime();
+      <div class="demo-card-wide mdl-card mdl-shadow--2dp">
+        <div class="mdl-card__title">
+          <h2 class="mdl-card__title-text"><span>00:00:00</span> Untill A Thing</h2>
+        </div>
+        <div class="mdl-card__supporting-text">
+          Counting
+        </div>
+        <div class="mdl-card__actions mdl-card--border">
+          <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+            Get Started
+          </a>
+        </div>
+        <div class="mdl-card__menu">
+          <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+            <i class="material-icons">share</i>
+          </button>
+        </div>
+      </div>
 
-// Update the count down every 1 second
-var x = setInterval(function() {
+    </main>
+  </div>
 
-  // Get today's date and time
-  var now = new Date().getTime();
-    
-  // Find the distance between now and the count down date
-  var distance = countDownDate - now;
-    
-  // Time calculations for days, hours, minutes and seconds
-  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-    
-  // Output the result in an element with id="demo"
-  document.getElementById("demo").innerHTML = days + "d " + hours + "h "
-  + minutes + "m " + seconds + "s ";
-    
-  // If the count down is over, write some text 
-  if (distance < 0) {
-    clearInterval(x);
-    let loca = ""+window.location.origin+""
-    document.getElementById("demo").innerHTML = "Farted";
-    document.getElementById("image").src = loca+"/me.jpg";
-  }
-}, 1000);
+  <script>
+    // Set the date we're counting down to
+    var countDownDate = new Date("May 24, 2023 6:00:00").getTime();
+
+    // Update the count down every 1 second
+    var x = setInterval(function () {
+
+        // Get today's date and time
+        var now = new Date().getTime();
+
+        // Find the distance between now and the count down date
+        var distance = countDownDate - now;
+
+        // Time calculations for days, hours, minutes and seconds
+        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        // Output the result in an element with id="demo"
+        document.getElementById("demo").innerHTML = days + "d " + hours + "h "
+            + minutes + "m " + seconds + "s ";
+
+        // If the count down is over, write some text 
+        if (distance < 0) {
+            clearInterval(x);
+            let loca = "" + window.location.origin + ""
+            document.getElementById("demo").innerHTML = "Farted";
+            document.getElementById("image").src = loca + "/me.jpg";
+        }
+    }, 1000);
 </script>
 
 </body>
+
 </html>
